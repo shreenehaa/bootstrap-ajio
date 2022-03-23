@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <style>
+      body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .row > .column {
+    padding: 0 8px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column {
+    float: left;
+    width: 25%;
+  }
+  
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+  }
+  
+  
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  .close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  img {
+    margin-bottom: -4px;
+  }
+  
+  .caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  
+  img.hover-shadow {
+    transition: 0.5s;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 pink, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  * {box-sizing: border-box;}
+  
+  .container1 {
+      position: relative;
+   padding-left: 10px;
+   float: left;
+  
+  }
+  
+  .image {
+      display: block;
+    
+    width: 600px;
+    height: 300px;
+    padding-left: 20px;
+    float: left;
+  }
+  
+  .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: auto;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    
+    text-align: center;
+  }
+  
+  
+  .container1:hover .overlay {
+    opacity: 1;
+  }
+  .footer {
+                   border: 2px solid black;
+                   padding: 5px;
+                   background-color: black;
+                   width: 1250px;
+                   height: 270px;
+                   color: white;
+                  }
+          #foot1,#foot2,#foot3,#foot4{
+            padding-left: 5px;
+            float: left;
+            color: white;
+
+          
+          }
+          .footer1
+          {
+            padding-left:0px;
+            float:left;
+          }        
+
+  </style>
+
+<body>
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="./ajioimg.jpg"
+            height="65px"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">  WOMEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> MEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">KIDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">HOME&LIVING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=" https://shreenehaa.github.io/login/">LOGIN</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+  
+       
+        
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  
+  <form class="d-flex input-group w-auto">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+    </form>
+  </div>
+</nav>
+<div>
+  <a href="https://www.ajio.com/">
+    <img src="./shop_now.jpg" style="width: 100%;height: 100px;">
+ </a>
+  
+</div>
+<div>
+<img src="./fi(new).jpg" style="width:100%;height:500px;"/>
+</div>
+<br>
+<div style="height: 100px;">
+  <center><img src="./offer-new.jpg" style="height:100px;width:500px;" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor"></center>
+</div>
+<br>
+<div class="row" ">
+    <br>
+  <div class="column">
+    <img src="./noffer5.jpg" style="width:100%;" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./noffer2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./noffer3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./noffer2.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+  </div>
+</div>
+<div >
+  <div class="row" >
+    <br>
+  <div class="column">
+    <img src="./indie.jpg" style="width:100%; height:100" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./jwe.jpg" style="width:100%;" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./trends.jpg" style="width:100%;" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="./home.jpg" style="width:100%;" onclick="openmodel();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+</div>
+<div class="footer">
+  <br>
+
+    
+    <div id="foot1">
+    <pre>
+      <b>POLICY INFO</b>
+
+      Privacy Policy
+      Terms of Sale
+      Terms of Use
+      Report Abuse & Takedown Policy
+      FAQ
+      FAQ
+      
+       <a href="https://play.google.com/store/apps/details?id=in.swiggy.android">Terms and Policy</a>
+      <a href="https://play.google.com/store/apps/details?id=in.swiggy.android">Copyright reserved@ swiggy</a>
+
+    </pre></div>
+   <div id="foot2">
+    <pre>
+      <b>COMPANY</b>
+
+      Impact@AJIO
+      Careers
+      Blog
+      Sitemap
+      Contact Us
+    </pre>
+  </div> 
+  <div id="foot3">
+    <pre>
+      <b>AJIO BUSINESS</b>
+
+      fashion App
+      buy on AJIO
+      Media Enquiries
+    </pre>
+  </div> 
+  <div id="foot4">
+    <pre>
+      <b>POPULAR LINKS</b>
+
+      top brands
+      dresses for men
+      dresses for women
+      kurthi
+      sarees
+      
+    </pre>
+  </div>
+
+
+
+  </body>
+  </html>
